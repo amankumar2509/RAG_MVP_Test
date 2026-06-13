@@ -20,3 +20,9 @@ chroma_db/*.sqlite3
 .env
 /.idea/
 /.vscode/
+
+# Chroma DB internal storage
+chroma_db/*/data_*.bin
+chroma_db/*/header.bin
+chroma_db/*/length.bin
+chroma_db/*/link_lists.bin

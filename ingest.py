@@ -26,9 +26,15 @@ for filename in os.listdir(data_folder):
     with open(filepath,"r") as file:
         text = file.read()
     embedding = model.encode(text)
-
+    collection.add(
+        ids=[filename],
+        embeddings=[embedding.tolist()],
+        documents=[text],
+        metadatas=[{"source": filename}],
+    )
 
     print("FILE:", filename)
     print("CONTENT:", text)
     print("EMBEDDING LENGTH:", len(embedding))
     print("-"*50)
+print("Documents stored successfully!")
