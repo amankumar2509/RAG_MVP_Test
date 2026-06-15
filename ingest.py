@@ -26,7 +26,7 @@ for filename in os.listdir(data_folder):
     with open(filepath,"r") as file:
         text = file.read()
     embedding = model.encode(text)
-    collection.add(
+    collection.upsert(
         ids=[filename],
         embeddings=[embedding.tolist()],
         documents=[text],
