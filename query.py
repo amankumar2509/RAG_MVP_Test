@@ -21,8 +21,7 @@ client = chromadb.PersistentClient(path="./chroma_db")
 collection = client.get_collection("houses")
 
 # User Question
-query = "How many bathrooms does House B have?"
-
+query = input("Ask a question: ")
 # Query Embedding
 query_embedding = model.encode(query)
 
@@ -42,6 +41,10 @@ print("-" * 50)
 # Prompt Augmentation
 prompt = f"""
 Answer the question using ONLY the provided context.
+
+Give only the information requested.
+Do not add extra details.
+
 
 Context:
 {retrieved_text}
