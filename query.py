@@ -48,7 +48,7 @@ for doc in results["documents"][0]:
     print("-" * 50)
 
 
-# Context Assembly
+# Context Assembly      
 retrieved_text = "\n".join(results["documents"][0])
 
 
