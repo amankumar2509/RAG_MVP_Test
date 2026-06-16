@@ -56,8 +56,16 @@ retrieved_text = "\n".join(results["documents"][0])
 prompt = f"""
 Answer the question using ONLY the provided context.
 
-Give only the information requested.
-Do not add extra details.
+Carefully analyze all retrieved information before answering.
+
+If the question asks:
+- highest
+- lowest
+- most
+- least
+- compare
+
+then compare all relevant values before answering.
 
 
 Context:
