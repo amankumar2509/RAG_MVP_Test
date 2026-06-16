@@ -28,15 +28,29 @@ query_embedding = model.encode(query)
 # Retrieval
 results = collection.query(
     query_embeddings=[query_embedding.tolist()],
-    n_results=1
+    # n_results=1
+      n_results=3
+
 )
 
 retrieved_text = results["documents"][0][0]
 
-print("Retrieved Context:")
-print(retrieved_text)
+# print("Retrieved Context:")
+# print(retrieved_text)
 
+# print("-" * 50)
+
+print("\nRetrieved Chunks:")
 print("-" * 50)
+
+for doc in results["documents"][0]:
+    print(doc)
+    print("-" * 50)
+
+
+# Context Assembly
+retrieved_text = "\n".join(results["documents"][0])
+
 
 # Prompt Augmentation
 prompt = f"""

@@ -25,6 +25,11 @@ for filename in os.listdir(data_folder):
     
     with open(filepath,"r") as file:
         text = file.read()
+
+    if not text.strip():
+    print(f"Skipping empty file: {filename}")
+    continue
+
     embedding = model.encode(text)
     collection.upsert(
         ids=[filename],
