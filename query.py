@@ -32,6 +32,13 @@ results = collection.query(
       n_results=3
 
 )
+print("\nSources:")
+print("-" * 50)
+
+for metadata in results["metadatas"][0]:
+    print(metadata["source"])
+
+print("-" * 50)
 
 retrieved_text = results["documents"][0][0]
 
@@ -80,5 +87,9 @@ gemini_model = genai.GenerativeModel("gemini-2.5-flash")
 
 response = gemini_model.generate_content(prompt)
 
-print("Answer:")
+
+
+print("\nAnswer:")
+print("-" * 50)
 print(response.text)
+print("-" * 50)
